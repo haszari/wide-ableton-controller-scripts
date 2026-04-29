@@ -48,6 +48,10 @@ class KontrolF1(ControlSurface):
 
         self._session.layer = self._l1_session_layer
 
+        # Bottom stop buttons (notes 52..55) stop all clips for their track.
+        # The order must match the track index (0..3).
+        self._session.set_stop_track_clip_buttons(self.elements.stop_buttons_raw)
+
     def _setup_mixer(self):
         self._mixer = MixerComponent(name='Mixer', is_enabled=False, )
 

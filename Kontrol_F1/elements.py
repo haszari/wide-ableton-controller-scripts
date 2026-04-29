@@ -1,6 +1,6 @@
 from ableton.v3.control_surface import ElementsBase
 from ableton.v3.control_surface import MIDI_NOTE_TYPE, MIDI_CC_TYPE
-from .midi import MIDI_CHANNEL, CLIP_BUTTONS, FADER_CCS, SEND_CCS
+from .midi import MIDI_CHANNEL, CLIP_BUTTONS, FADER_CCS, SEND_CCS, STOP_BUTTONS
 
 
 class Elements(ElementsBase):
@@ -11,6 +11,11 @@ class Elements(ElementsBase):
         # Clip grid buttons (4x4) on Channel 0
         self.add_button_matrix(CLIP_BUTTONS, 'clip_buttons', 
                               msg_type=MIDI_NOTE_TYPE, 
+                              is_momentary=True)
+
+        # Bottom stop buttons (1x4) mapped to MIDI notes 52..55
+        self.add_button_matrix(STOP_BUTTONS, 'stop_buttons',
+                              msg_type=MIDI_NOTE_TYPE,
                               is_momentary=True)
 
         # Track faders (4) on Channel 13

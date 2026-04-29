@@ -20,9 +20,31 @@ class F1Color:
         return SimpleColor(self.base_midi, channel=12)
     
     @property
+    def dim_flash(self):
+        """
+        Dim brightness flashing MIDI value (base + 1).
+
+        Note: Although the device protocol defines a "+1 flash" level,
+        flashing did not work reliably in our testing (LEDs tended to behave
+        like the non-flashing level instead of blinking).
+        """
+        return SimpleColor(self.base_midi + 1, channel=12)
+    
+    @property
     def bright(self):
         """Bright brightness MIDI value (base + 2)."""
         return SimpleColor(self.base_midi + 2, channel=12)
+    
+    @property
+    def bright_flash(self):
+        """
+        Bright brightness flashing MIDI value (base + 3).
+
+        Note: Although the device protocol defines a "+3 flash" level,
+        flashing did not work reliably in our testing (LEDs tended to behave
+        like the non-flashing level instead of blinking).
+        """
+        return SimpleColor(self.base_midi + 3, channel=12)
 
 
 class F1HSBColor:
@@ -222,8 +244,8 @@ class KontrolF1Colors:
         
         # Clip states
         ClipStopped = F1IndexedColors.GREEN.dim  # Clip exists but stopped (dim green)
-        ClipTriggeredPlay = F1IndexedColors.ULTRAWHITE.bright  # Clip triggered to play (bright white)
-        ClipTriggeredRecord = F1IndexedColors.ULTRAWHITE.bright  # Clip triggered to record (bright white)
+        ClipTriggeredPlay = F1IndexedColors.ULTRAWHITE.dim_flash  # Clip triggered to play (flashing dim)
+        ClipTriggeredRecord = F1IndexedColors.ULTRAWHITE.dim_flash  # Clip triggered to record (flashing dim)
         ClipPlaying = F1IndexedColors.GREEN.bright  # Clip playing (bright green)
         ClipRecording = F1IndexedColors.RED.bright  # Clip recording (bright red)
         
@@ -232,15 +254,18 @@ class KontrolF1Colors:
         SceneTriggered = F1IndexedColors.ULTRAWHITE.bright
         NoScene = F1IndexedColors.BLACK.dim
         
-        # Stop clip states
-        StopClipTriggered = F1IndexedColors.ULTRAWHITE.bright
-        StopClip = F1IndexedColors.BLACK.dim
+        # Stop clip states (bottom buttons)
+        # NOTE: On this device, stop-button LEDs do not flash reliably using the
+        # +3 "flash" MIDI offset (unlike the clip pad LEDs), so we use plain
+        # `bright` for the stopping state.
+        StopClipTriggered = F1IndexedColors.ULTRAWHITE.bright  # Stopping
+        StopClip = F1IndexedColors.ULTRAWHITE.bright  # Track has playing slot
         StopClipDisabled = F1IndexedColors.BLACK.dim
-        StopAllClipsPressed = F1IndexedColors.ULTRAWHITE.bright
+        StopAllClipsPressed = F1IndexedColors.ULTRAWHITE.bright  # Stop all pressed
         StopAllClips = F1IndexedColors.BLACK.dim
 
 
-def _indexed_clip_color(liveobj, *, brightness):
+def _indexed_clip_color(liveobj, *, brightness, flash=False):
     """
     Map a Live clip object's `color` (hex int) to the closest indexed palette hue.
 
@@ -249,10 +274,15 @@ def _indexed_clip_color(liveobj, *, brightness):
     """
     hex_color = getattr(liveobj, "color", None)
     if hex_color is None:
-        return F1IndexedColors.BLACK.dim
+        base = F1IndexedColors.BLACK
+        if brightness == "bright":
+            return base.bright_flash if flash else base.bright
+        return base.dim_flash if flash else base.dim
 
     closest = F1IndexedColors.get_closest_color(hex_color)
-    return closest.bright if brightness == "bright" else closest.dim
+    if brightness == "bright":
+        return closest.bright_flash if flash else closest.bright
+    return closest.dim_flash if flash else closest.dim
 
 
 kontrol_f1_skin = Skin(KontrolF1Colors)
@@ -262,5 +292,5 @@ kontrol_f1_skin = Skin(KontrolF1Colors)
 kontrol_f1_skin.colors["Session.ClipStopped"] = lambda clip: _indexed_clip_color(clip, brightness="dim")
 kontrol_f1_skin.colors["Session.ClipPlaying"] = lambda clip: _indexed_clip_color(clip, brightness="bright")
 kontrol_f1_skin.colors["Session.ClipRecording"] = lambda clip: _indexed_clip_color(clip, brightness="bright")
-kontrol_f1_skin.colors["Session.ClipTriggeredPlay"] = lambda clip: _indexed_clip_color(clip, brightness="bright")
-kontrol_f1_skin.colors["Session.ClipTriggeredRecord"] = lambda clip: _indexed_clip_color(clip, brightness="bright")
+kontrol_f1_skin.colors["Session.ClipTriggeredPlay"] = lambda clip: F1IndexedColors.ULTRAWHITE.dim_flash
+kontrol_f1_skin.colors["Session.ClipTriggeredRecord"] = lambda clip: F1IndexedColors.ULTRAWHITE.dim_flash
