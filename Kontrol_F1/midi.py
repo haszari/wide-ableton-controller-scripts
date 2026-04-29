@@ -30,3 +30,8 @@ SEND_CCS = [[SEND_CC_START + track_idx for track_idx in range(4)]]
 # Stop buttons for each track (4x1 matrix)
 STOP_BUTTONS = [[CLIP_STOP_START + i for i in range(4)]]
 
+# Note numbers for the following buttons
+SYNC_BUTTON = 0
+CAPTURE_BUTTON = 1
+QUANT_BUTTON = 2
+REVERSE_BUTTON = 3

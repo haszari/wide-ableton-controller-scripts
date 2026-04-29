@@ -1,6 +1,6 @@
 import Live
 from ableton.v3.control_surface import ControlSurface, ControlSurfaceSpecification, Layer
-from ableton.v3.control_surface.components import SessionComponent, MixerComponent
+from ableton.v3.control_surface.components import SessionComponent, MixerComponent, SessionNavigationComponent
 from .elements import Elements
 from .skin import kontrol_f1_skin
 # HSB mode custom component - unused/untested, kept for future reference
@@ -43,10 +43,19 @@ class KontrolF1(ControlSurface):
 
     def _setup_session(self):
         self._session = SessionComponent(name='Session', is_enabled=False, )
+        self._session_navigation = SessionNavigationComponent(name='Session_Navigation', is_enabled=False)
 
         self._l1_session_layer = Layer(clip_launch_buttons='clip_buttons')
 
         self._session.layer = self._l1_session_layer
+
+        # Wire page-scroll controls:
+        # Up (QUANT) / Down (REVERSE) moves scenes by page size (4).
+        # Left (SYNC) / Right (CAPTURE) moves tracks by page size (4).
+        self._session_navigation.set_page_up_button(self.elements.quant_button)
+        self._session_navigation.set_page_down_button(self.elements.reverse_button)
+        self._session_navigation.set_page_left_button(self.elements.sync_button)
+        self._session_navigation.set_page_right_button(self.elements.capture_button)
 
         # Bottom stop buttons (notes 52..55) stop all clips for their track.
         # The order must match the track index (0..3).
@@ -67,6 +76,7 @@ class KontrolF1(ControlSurface):
     def _enter_session_mode(self):
         self._session.set_enabled(True)
         self._mixer.set_enabled(True)
+        self._session_navigation.set_enabled(True)
 
     def _on_view_changed(self):
         view = self.application.view.focused_document_view

@@ -1,6 +1,16 @@
 from ableton.v3.control_surface import ElementsBase
 from ableton.v3.control_surface import MIDI_NOTE_TYPE, MIDI_CC_TYPE
-from .midi import MIDI_CHANNEL, CLIP_BUTTONS, FADER_CCS, SEND_CCS, STOP_BUTTONS
+from .midi import (
+    MIDI_CHANNEL,
+    CLIP_BUTTONS,
+    FADER_CCS,
+    SEND_CCS,
+    STOP_BUTTONS,
+    SYNC_BUTTON,
+    CAPTURE_BUTTON,
+    QUANT_BUTTON,
+    REVERSE_BUTTON,
+)
 
 
 class Elements(ElementsBase):
@@ -17,6 +27,15 @@ class Elements(ElementsBase):
         self.add_button_matrix(STOP_BUTTONS, 'stop_buttons',
                               msg_type=MIDI_NOTE_TYPE,
                               is_momentary=True)
+
+        # Session navigation buttons (page scrolling).
+        # You indicated these are sent as MIDI notes on the Kontrol F1.
+        # - QUANT up / REVERSE down (move scenes by page size)
+        # - SYNC left / CAPTURE right (move tracks by page size)
+        self.add_button(QUANT_BUTTON, 'quant_button', msg_type=MIDI_NOTE_TYPE, is_momentary=True)
+        self.add_button(REVERSE_BUTTON, 'reverse_button', msg_type=MIDI_NOTE_TYPE, is_momentary=True)
+        self.add_button(SYNC_BUTTON, 'sync_button', msg_type=MIDI_NOTE_TYPE, is_momentary=True)
+        self.add_button(CAPTURE_BUTTON, 'capture_button', msg_type=MIDI_NOTE_TYPE, is_momentary=True)
 
         # Track faders (4) on Channel 13
         self.add_encoder_matrix(FADER_CCS, 'track_faders',
