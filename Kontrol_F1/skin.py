@@ -171,14 +171,22 @@ class F1IndexedColors:
         # Check for black/white (low saturation or brightness)
         sat = int(s * 100)
         bright = int(v * 100)
-        if sat < 10 and bright < 10:
+        if bright < 10:
             return F1IndexedColors.BLACK
+
+        # For low saturation, hue matching is unstable (e.g. white clips).
+        # Map them to the available indexed whites instead.
+        if sat < 10:
+            # Thresholds tuned for the 0..100 brightness range.
+            return F1IndexedColors.WHITE if bright < 60 else F1IndexedColors.ULTRAWHITE
         
         # Find nearest colour by hue
         closest = F1IndexedColors.BLACK
         hue_delta = 999
         for colour in F1IndexedColors.ALL_COLORS:
+            # Hue is circular; wrap-around matters near 0/360.
             hued = abs(hue - colour.hue)
+            hued = min(hued, 360 - hued)
             if hued < hue_delta:
                 hue_delta = hued
                 closest = colour
@@ -199,10 +207,12 @@ class KontrolF1Colors:
         Session colors using indexed colour mode.
         
         Uses the F1IndexedColors palette with dim/bright brightness levels.
-        Triggered states use bright white (ULTRAWHITE).
+        Clip LED hue is matched dynamically from Ableton's current clip
+        `color` (hex/RGB) by finding the closest indexed hue.
         
-        Note: For dynamic color matching from Ableton clip colors, a custom
-        ClipSlotComponent would be needed (similar to the HSB approach).
+        For clip state brightness:
+        - stopped -> dim
+        - playing/recording/triggered -> bright
         """
         
         # Empty slot states
@@ -230,4 +240,27 @@ class KontrolF1Colors:
         StopAllClips = F1IndexedColors.BLACK.dim
 
 
+def _indexed_clip_color(liveobj, *, brightness):
+    """
+    Map a Live clip object's `color` (hex int) to the closest indexed palette hue.
+
+    Ableton's v3 ClipSlotComponent uses `LiveObjSkinEntry(..., slot_or_clip)`,
+    so the skin entry function receives the clip object as `liveobj`.
+    """
+    hex_color = getattr(liveobj, "color", None)
+    if hex_color is None:
+        return F1IndexedColors.BLACK.dim
+
+    closest = F1IndexedColors.get_closest_color(hex_color)
+    return closest.bright if brightness == "bright" else closest.dim
+
+
 kontrol_f1_skin = Skin(KontrolF1Colors)
+
+# Replace static Clip* colors with dynamic indexed-hue matching.
+# (Skin's __getitem__ calls factories when the stored value is callable.)
+kontrol_f1_skin.colors["Session.ClipStopped"] = lambda clip: _indexed_clip_color(clip, brightness="dim")
+kontrol_f1_skin.colors["Session.ClipPlaying"] = lambda clip: _indexed_clip_color(clip, brightness="bright")
+kontrol_f1_skin.colors["Session.ClipRecording"] = lambda clip: _indexed_clip_color(clip, brightness="bright")
+kontrol_f1_skin.colors["Session.ClipTriggeredPlay"] = lambda clip: _indexed_clip_color(clip, brightness="bright")
+kontrol_f1_skin.colors["Session.ClipTriggeredRecord"] = lambda clip: _indexed_clip_color(clip, brightness="bright")
