@@ -14,7 +14,7 @@ Basic script using ableton.v3 API with same MIDI settings as CustomControlSurfac
 
 class Specification(ControlSurfaceSpecification):
     elements_type = Elements
-    num_tracks = 4
+    num_tracks = 2
     num_scenes = 4
     control_surface_skin = kontrol_f1_skin
     # HSB mode custom component - unused/untested

@@ -16,19 +16,20 @@ SEND_CC_START = 2
 
 # Generate clip button note numbers (column-major: col1-1,col1-2,col1-3,col1-4, col2-1, etc.)
 # Hardware expects: col1 has notes 36,40,44,48 (rows 1-4), col2 has 37,41,45,49, etc.
+# Grid is now 2 columns x 4 rows (2 tracks x 4 scenes)
 CLIP_BUTTONS = [
     [CLIP_NOTE_START + (row_idx * 4) + col_idx for row_idx in range(4)]
-    for col_idx in range(4)
+    for col_idx in range(2)
 ]
 
-# Generate fader CC numbers
-FADER_CCS = [[FADER_CC_START + track_idx for track_idx in range(4)]]
+# Generate fader CC numbers (2 faders for 2 tracks)
+FADER_CCS = [[FADER_CC_START + track_idx for track_idx in range(2)]]
 
 # Generate send CC numbers
 SEND_CCS = [[SEND_CC_START + track_idx for track_idx in range(4)]]
 
-# Stop buttons for each track (4x1 matrix)
-STOP_BUTTONS = [[CLIP_STOP_START + i for i in range(4)]]
+# Stop buttons for each track (1x2 matrix for 2 tracks)
+STOP_BUTTONS = [[CLIP_STOP_START + i for i in range(2)]]
 
 # Note numbers for the following buttons
 SYNC_BUTTON = 0
