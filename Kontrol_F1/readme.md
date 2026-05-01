@@ -32,8 +32,14 @@ Tested with Ableton 12.3.8.
   - `~/Ableton/User Library/Remote Scripts/Kontrol_F1_4ch`
 - Use NI Controller editor to apply template (`*.nckf1` file) to hardware device.
 
-Open Ableton, go to settings, enable your F1(s) for remote control, select `Kontrol F1 2ch` or `Kontrol F1 4ch`.
+Open Ableton, go to settings:
 
+- `Link, Tempo & MIDI` tab
+- Set `Control Surface` to `Kontrol F1 2ch` or `Kontrol F1 4ch`
+- Select your F1 device in input & output
+- Repeat for each device
+
+Recommend setting `Remote` in input/output ports also to use for custom control mapping e.g. to override knobs (in 4ch) or to use channels 3&4 for whatever (in 2ch).
 
 ## Kontrol_F1_4ch
 Standard/typical 4 channel x 4 scene Ableton control.
