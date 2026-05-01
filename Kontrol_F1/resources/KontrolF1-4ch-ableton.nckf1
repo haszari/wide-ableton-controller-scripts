@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ni-controller-midi-map version="1">
-  <midi-map type="TraktorKontrolF1" name="KontrolF1-wide-ableton-controller-extension" port="internal">
+  <midi-map type="TraktorKontrolF1" name="KontrolF1-4ch-ableton" port="internal">
     <shiftmode>0</shiftmode>
     <wrapmode>0</wrapmode>
     <controls />
