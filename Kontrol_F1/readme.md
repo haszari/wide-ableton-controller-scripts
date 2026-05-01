@@ -21,6 +21,20 @@ Key feature:
 
 The smaller clip ring means you can use these like "decks", controlling different parts of your session. Oo yea nice. 
 
+### Fine print
+Built with a variety of free plan AI agents using [`ableton-control-surface-core`](https://pypi.org/project/ableton-control-surface-core/) pip package as reference/rough guide to the (*dang it bobby*) undocumented Python controller API.
+
+Tested with Ableton 12.3.8.
+
+### Setup
+- Copy folder(s) to Ableton User Library, e.g. 
+  - `~/Ableton/User Library/Remote Scripts/Kontrol_F1_2ch`
+  - `~/Ableton/User Library/Remote Scripts/Kontrol_F1_4ch`
+- Use NI Controller editor to apply template (`*.nckf1` file) to hardware device.
+
+Open Ableton, go to settings, enable your F1(s) for remote control, select `Kontrol F1 2ch` or `Kontrol F1 4ch`.
+
+
 ## Kontrol_F1_4ch
 Standard/typical 4 channel x 4 scene Ableton control.
 
