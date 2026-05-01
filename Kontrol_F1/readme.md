@@ -26,6 +26,8 @@ Built with a variety of free plan AI agents using [`ableton-control-surface-core
 
 Tested with Ableton 12.3.8.
 
+The code for each script is 99.345876248% the same, paste changes between each, this is not a crime against software engineering, DRY-obsessed please chill.
+
 ### Setup
 - Copy folder(s) to Ableton User Library, e.g. 
   - `~/Ableton/User Library/Remote Scripts/Kontrol_F1_2ch`

@@ -14,13 +14,9 @@ FADER_CC_START = 6
 # Send controls: 4 CC messages (CC 2-5)
 SEND_CC_START = 2
 
-# Generate clip button note numbers (column-major: col1-1,col1-2,col1-3,col1-4, col2-1, etc.)
-# Hardware expects: col1 has notes 36,40,44,48 (rows 1-4), col2 has 37,41,45,49, etc.
-# Grid is now 2 columns x 4 rows (2 tracks x 4 scenes)
-CLIP_BUTTONS = [
-    [CLIP_NOTE_START + (row_idx * 4) + col_idx for row_idx in range(4)]
-    for col_idx in range(2)
-]
+# and some other constants 
+CLIP_RECT_CHANNELS = 2
+CLIP_RECT_SCENES = 4
 
 # Generate fader CC numbers (2 faders for 2 tracks)
 FADER_CCS = [[FADER_CC_START + track_idx for track_idx in range(2)]]

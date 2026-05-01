@@ -3,6 +3,10 @@ from ableton.v3.control_surface import ControlSurface, ControlSurfaceSpecificati
 from ableton.v3.control_surface.components import SessionComponent, MixerComponent, SessionNavigationComponent
 from .elements import Elements
 from .skin import kontrol_f1_skin
+from .midi import (
+    CLIP_RECT_CHANNELS,
+    CLIP_RECT_SCENES
+)
 # HSB mode custom component - unused/untested, kept for future reference
 # from .clip_slot import KontrolF1ClipSlotComponent
 
@@ -14,8 +18,8 @@ Basic script using ableton.v3 API with same MIDI settings as CustomControlSurfac
 
 class Specification(ControlSurfaceSpecification):
     elements_type = Elements
-    num_tracks = 4
-    num_scenes = 4
+    num_tracks = CLIP_RECT_CHANNELS
+    num_scenes = CLIP_RECT_SCENES
     control_surface_skin = kontrol_f1_skin
     # HSB mode custom component - unused/untested
     # clip_slot_component_type = KontrolF1ClipSlotComponent

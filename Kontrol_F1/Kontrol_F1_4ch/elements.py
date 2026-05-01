@@ -1,8 +1,10 @@
 from ableton.v3.control_surface import ElementsBase
 from ableton.v3.control_surface import MIDI_NOTE_TYPE, MIDI_CC_TYPE
 from .midi import (
+    CLIP_RECT_CHANNELS,
+    CLIP_RECT_SCENES,
     MIDI_CHANNEL,
-    CLIP_BUTTONS,
+    CLIP_NOTE_START,
     FADER_CCS,
     SEND_CCS,
     STOP_BUTTONS,
@@ -18,8 +20,15 @@ class Elements(ElementsBase):
     def __init__(self, *a, **k):
         super().__init__(global_channel=MIDI_CHANNEL, *a, **k)
 
-        # Clip grid buttons (4x4) on Channel 0
-        self.add_button_matrix(CLIP_BUTTONS, 'clip_buttons', 
+        clip_grid_midi = []
+        for scene_idx in range(CLIP_RECT_SCENES):
+            row = []
+            for channel_idx in range(CLIP_RECT_CHANNELS):
+                row.append(CLIP_NOTE_START + scene_idx + channel_idx*CLIP_RECT_SCENES)
+            clip_grid_midi.append(row)
+
+        # Clip grid buttons
+        self.add_button_matrix(clip_grid_midi, 'clip_buttons', 
                               msg_type=MIDI_NOTE_TYPE, 
                               is_momentary=True)
 
