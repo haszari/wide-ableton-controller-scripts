@@ -55,15 +55,17 @@ class Elements(ElementsBase):
         self.add_encoder_matrix(SEND_CCS, 'send_controls',
                                msg_type=MIDI_CC_TYPE)
 
-        # Send A/B controls (stop-button CCs repurposed as send encoders)
+        # Send A/B stab controls (stop-button CCs repurposed as send encoders)
         # Hardware layout: [ch1B] [ch2A] [ch2B] [ch1A]
         self.add_encoder_matrix(SEND_A_CCS, 'send_a_encoders',
                                msg_type=MIDI_CC_TYPE)
         self.add_encoder_matrix(SEND_B_CCS, 'send_b_encoders',
                                msg_type=MIDI_CC_TYPE)
 
-        # Spare bottom buttons - stop all clips + transport stop (shift mode: notes 54..55)
+        # Spare bottom buttons for utility stop
+        # Stop all clips
         self.add_button(STOP_ALL_CLIPS_NOTE, 'stop_all_clip_button',
                        msg_type=MIDI_NOTE_TYPE, is_momentary=True)
+        # Stop transport
         self.add_button(TRANSPORT_STOP_NOTE, 'transport_stop_button',
                        msg_type=MIDI_NOTE_TYPE, is_momentary=True)
