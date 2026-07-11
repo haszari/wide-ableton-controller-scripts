@@ -5,7 +5,7 @@
     <wrapmode>0</wrapmode>
     <controls />
     <pages>
-      <current_index>0</current_index>
+      <current_index>1</current_index>
       <page name="Basic">
         <knob version="1" id="7Segment">
           <controller>41</controller>
@@ -93,7 +93,7 @@
           <bipolar>off</bipolar>
         </knob>
         <button version="1" id="Mute1">
-          <note>52</note>
+          <controller>52</controller>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
@@ -101,7 +101,7 @@
           <reaction>ondown</reaction>
         </button>
         <button version="1" id="Mute2">
-          <note>53</note>
+          <controller>53</controller>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
@@ -900,35 +900,35 @@
           <bipolar>off</bipolar>
         </knob>
         <button version="1" id="Mute1">
-          <controller>74</controller>
+          <note>52</note>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
-          <behavior>gate</behavior>
+          <behavior onIfDown="on">gate</behavior>
           <reaction>ondown</reaction>
         </button>
         <button version="1" id="Mute2">
-          <controller>75</controller>
+          <note>53</note>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
-          <behavior>gate</behavior>
+          <behavior onIfDown="on">gate</behavior>
           <reaction>ondown</reaction>
         </button>
         <button version="1" id="Mute3">
-          <controller>76</controller>
+          <note>54</note>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
-          <behavior>gate</behavior>
+          <behavior onIfDown="on">gate</behavior>
           <reaction>ondown</reaction>
         </button>
         <button version="1" id="Mute4">
-          <controller>77</controller>
+          <note>55</note>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
-          <behavior>gate</behavior>
+          <behavior onIfDown="on">gate</behavior>
           <reaction>ondown</reaction>
         </button>
         <button version="1" id="PadA1">
@@ -1217,7 +1217,7 @@
         </led>
         <led version="1" id="PadB4H">
           <display type="0">
-            <unit color-type="1" color-mode="0" color-on-index="2" color-off-index="1" />
+            <unit color-type="1" color-mode="0" color-on-index="12" color-off-index="1" />
           </display>
           <controller>58</controller>
           <channel>0</channel>
