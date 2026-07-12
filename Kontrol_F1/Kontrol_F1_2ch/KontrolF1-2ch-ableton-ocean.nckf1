@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ni-controller-midi-map version="1">
-  <midi-map type="TraktorKontrolF1" name="KontrolF1-2ch-ableton" port="internal">
+  <midi-map type="TraktorKontrolF1" name="KontrolF1-2ch-ableton-ocean" port="internal">
     <shiftmode>0</shiftmode>
     <wrapmode>0</wrapmode>
     <controls />
@@ -93,7 +93,7 @@
           <bipolar>off</bipolar>
         </knob>
         <button version="1" id="Mute1">
-          <note>52</note>
+          <controller>52</controller>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
@@ -101,7 +101,7 @@
           <reaction>ondown</reaction>
         </button>
         <button version="1" id="Mute2">
-          <note>53</note>
+          <controller>53</controller>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
@@ -202,7 +202,7 @@
         </led>
         <button version="1" id="PadA3">
           <controller>44</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior onIfDown="on">toggle</behavior>
@@ -240,7 +240,7 @@
         </led>
         <button version="1" id="PadA4">
           <controller>48</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior>gate</behavior>
@@ -258,7 +258,7 @@
         </led>
         <led version="1" id="PadA4H">
           <display type="0">
-            <unit color-type="1" color-mode="0" color-on-index="7" color-off-index="1" />
+            <unit color-type="1" color-mode="0" color-on-index="8" color-off-index="1" />
           </display>
           <controller>48</controller>
           <channel>0</channel>
@@ -354,7 +354,7 @@
         </led>
         <button version="1" id="PadB3">
           <controller>45</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior onIfDown="on">toggle</behavior>
@@ -392,7 +392,7 @@
         </led>
         <button version="1" id="PadB4">
           <controller>49</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior>gate</behavior>
@@ -410,7 +410,7 @@
         </led>
         <led version="1" id="PadB4H">
           <display type="0">
-            <unit color-type="1" color-mode="0" color-on-index="6" color-off-index="1" />
+            <unit color-type="1" color-mode="0" color-on-index="9" color-off-index="1" />
           </display>
           <controller>49</controller>
           <channel>0</channel>
@@ -506,7 +506,7 @@
         </led>
         <button version="1" id="PadC3">
           <controller>46</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior onIfDown="on">toggle</behavior>
@@ -544,7 +544,7 @@
         </led>
         <button version="1" id="PadC4">
           <controller>50</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior>gate</behavior>
@@ -562,7 +562,7 @@
         </led>
         <led version="1" id="PadC4H">
           <display type="0">
-            <unit color-type="1" color-mode="0" color-on-index="5" color-off-index="1" />
+            <unit color-type="1" color-mode="0" color-on-index="10" color-off-index="1" />
           </display>
           <controller>50</controller>
           <channel>0</channel>
@@ -658,7 +658,7 @@
         </led>
         <button version="1" id="PadD3">
           <controller>47</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior onIfDown="on">toggle</behavior>
@@ -696,7 +696,7 @@
         </led>
         <button version="1" id="PadD4">
           <controller>51</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior>gate</behavior>
@@ -714,7 +714,7 @@
         </led>
         <led version="1" id="PadD4H">
           <display type="0">
-            <unit color-type="1" color-mode="0" color-on-index="4" color-off-index="1" />
+            <unit color-type="1" color-mode="0" color-on-index="11" color-off-index="1" />
           </display>
           <controller>51</controller>
           <channel>0</channel>
@@ -900,35 +900,35 @@
           <bipolar>off</bipolar>
         </knob>
         <button version="1" id="Mute1">
-          <controller>74</controller>
+          <note>52</note>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
-          <behavior>gate</behavior>
+          <behavior onIfDown="on">gate</behavior>
           <reaction>ondown</reaction>
         </button>
         <button version="1" id="Mute2">
-          <controller>75</controller>
+          <note>53</note>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
-          <behavior>gate</behavior>
+          <behavior onIfDown="on">gate</behavior>
           <reaction>ondown</reaction>
         </button>
         <button version="1" id="Mute3">
-          <controller>76</controller>
+          <note>54</note>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
-          <behavior>gate</behavior>
+          <behavior onIfDown="on">gate</behavior>
           <reaction>ondown</reaction>
         </button>
         <button version="1" id="Mute4">
-          <controller>77</controller>
+          <note>55</note>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
-          <behavior>gate</behavior>
+          <behavior onIfDown="on">gate</behavior>
           <reaction>ondown</reaction>
         </button>
         <button version="1" id="PadA1">
@@ -1217,7 +1217,7 @@
         </led>
         <led version="1" id="PadB4H">
           <display type="0">
-            <unit color-type="1" color-mode="0" color-on-index="2" color-off-index="1" />
+            <unit color-type="1" color-mode="0" color-on-index="12" color-off-index="1" />
           </display>
           <controller>58</controller>
           <channel>0</channel>
