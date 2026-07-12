@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ni-controller-midi-map version="1">
-  <midi-map type="TraktorKontrolF1" name="KontrolF1-2ch-ableton-2" port="internal">
+  <midi-map type="TraktorKontrolF1" name="KontrolF1-2ch-ableton-ocean" port="internal">
     <shiftmode>0</shiftmode>
     <wrapmode>0</wrapmode>
     <controls />
@@ -202,7 +202,7 @@
         </led>
         <button version="1" id="PadA3">
           <controller>44</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior onIfDown="on">toggle</behavior>
@@ -240,7 +240,7 @@
         </led>
         <button version="1" id="PadA4">
           <controller>48</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior>gate</behavior>
@@ -354,7 +354,7 @@
         </led>
         <button version="1" id="PadB3">
           <controller>45</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior onIfDown="on">toggle</behavior>
@@ -392,7 +392,7 @@
         </led>
         <button version="1" id="PadB4">
           <controller>49</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior>gate</behavior>
@@ -506,7 +506,7 @@
         </led>
         <button version="1" id="PadC3">
           <controller>46</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior onIfDown="on">toggle</behavior>
@@ -544,7 +544,7 @@
         </led>
         <button version="1" id="PadC4">
           <controller>50</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior>gate</behavior>
@@ -658,7 +658,7 @@
         </led>
         <button version="1" id="PadD3">
           <controller>47</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior onIfDown="on">toggle</behavior>
@@ -696,7 +696,7 @@
         </led>
         <button version="1" id="PadD4">
           <controller>51</controller>
-          <channel>12</channel>
+          <channel>13</channel>
           <off>0</off>
           <on>127</on>
           <behavior>gate</behavior>
