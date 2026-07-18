@@ -880,7 +880,7 @@
           <bipolar>off</bipolar>
         </knob>
         <knob version="1" id="Filter3">
-          <controller>45</controller>
+          <controller>4</controller>
           <channel>12</channel>
           <min>0</min>
           <max>127</max>
@@ -890,7 +890,7 @@
           <bipolar>off</bipolar>
         </knob>
         <knob version="1" id="Filter4">
-          <controller>46</controller>
+          <controller>5</controller>
           <channel>12</channel>
           <min>0</min>
           <max>127</max>
