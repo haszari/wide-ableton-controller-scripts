@@ -37,11 +37,11 @@ SEND_CCS = [[SEND_CC_START + track_idx for track_idx in range(2)]]
 
 # Bottom stop buttons (non-shift mode: CCs on ch12)
 # Repurposed as send encoders (2ch x 2 sends = 4 controls)
-# Hardware layout: [ch2A, ch1B] 
-#            shift [ch2B, ch1A]
+# Hardware layout: [ch1B, ch2A] 
+#            shift [ch1A, ch2B]
 # i.e. lead delay + drums reverb, and other sends for shift
-SEND_A_CCS = [[53, 54]] 
-SEND_B_CCS = [[55, 52]] 
+SEND_A_CCS = [[54, 53]] 
+SEND_B_CCS = [[52, 55]] 
 
 # Note numbers for session navigation buttons
 SYNC_BUTTON = 0
