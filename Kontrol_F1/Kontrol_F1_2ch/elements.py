@@ -9,7 +9,7 @@ from .midi import (
     SEND_CCS,
     SEND_A_CCS,
     SEND_B_CCS,
-    SHIFT_STOP_BUTTONS,
+    STOP_BUTTONS,
     STOP_ALL_CLIPS_NOTE,
     TRANSPORT_STOP_NOTE,
     SYNC_BUTTON,
@@ -37,7 +37,7 @@ class Elements(ElementsBase):
                               is_momentary=True)
 
         # Bottom stop buttons (1x2) - per-track stop (shift mode: notes 52..53)
-        self.add_button_matrix(SHIFT_STOP_BUTTONS, 'stop_buttons',
+        self.add_button_matrix(STOP_BUTTONS, 'stop_buttons',
                               msg_type=MIDI_NOTE_TYPE,
                               is_momentary=True)
 
@@ -56,7 +56,6 @@ class Elements(ElementsBase):
                                msg_type=MIDI_CC_TYPE)
 
         # Send A/B stab controls (stop-button CCs repurposed as send encoders)
-        # Hardware layout: [ch1B] [ch2A] [ch2B] [ch1A]
         self.add_encoder_matrix(SEND_A_CCS, 'send_a_encoders',
                                msg_type=MIDI_CC_TYPE)
         self.add_encoder_matrix(SEND_B_CCS, 'send_b_encoders',

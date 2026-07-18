@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ni-controller-midi-map version="1">
-  <midi-map type="TraktorKontrolF1" name="KontrolF1-2ch-ableton-sunset" port="internal">
+  <midi-map type="TraktorKontrolF1" name="KontrolF1-2ch-L-ableton-nature" port="internal">
     <shiftmode>0</shiftmode>
     <wrapmode>0</wrapmode>
     <controls />
@@ -54,7 +54,7 @@
         </wheel>
         <knob version="1" id="Filter1">
           <controller>2</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <min>0</min>
           <max>127</max>
           <default>0</default>
@@ -64,7 +64,7 @@
         </knob>
         <knob version="1" id="Filter2">
           <controller>3</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <min>0</min>
           <max>127</max>
           <default>0</default>
@@ -74,7 +74,7 @@
         </knob>
         <knob version="1" id="Filter3">
           <controller>4</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <min>0</min>
           <max>127</max>
           <default>0</default>
@@ -84,7 +84,7 @@
         </knob>
         <knob version="1" id="Filter4">
           <controller>5</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <min>0</min>
           <max>127</max>
           <default>0</default>
@@ -93,7 +93,7 @@
           <bipolar>off</bipolar>
         </knob>
         <button version="1" id="Mute1">
-          <controller>52</controller>
+          <note>52</note>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
@@ -101,7 +101,7 @@
           <reaction>ondown</reaction>
         </button>
         <button version="1" id="Mute2">
-          <controller>53</controller>
+          <note>53</note>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
@@ -109,7 +109,7 @@
           <reaction>ondown</reaction>
         </button>
         <button version="1" id="Mute3">
-          <controller>54</controller>
+          <controller>52</controller>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
@@ -117,7 +117,7 @@
           <reaction>ondown</reaction>
         </button>
         <button version="1" id="Mute4">
-          <controller>55</controller>
+          <controller>53</controller>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
@@ -202,7 +202,7 @@
         </led>
         <button version="1" id="PadA3">
           <controller>44</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <off>0</off>
           <on>127</on>
           <behavior onIfDown="on">toggle</behavior>
@@ -240,7 +240,7 @@
         </led>
         <button version="1" id="PadA4">
           <controller>48</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <off>0</off>
           <on>127</on>
           <behavior>gate</behavior>
@@ -258,7 +258,7 @@
         </led>
         <led version="1" id="PadA4H">
           <display type="0">
-            <unit color-type="1" color-mode="0" color-on-index="8" color-off-index="1" />
+            <unit color-type="1" color-mode="0" color-on-index="7" color-off-index="1" />
           </display>
           <controller>48</controller>
           <channel>0</channel>
@@ -354,7 +354,7 @@
         </led>
         <button version="1" id="PadB3">
           <controller>45</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <off>0</off>
           <on>127</on>
           <behavior onIfDown="on">toggle</behavior>
@@ -392,7 +392,7 @@
         </led>
         <button version="1" id="PadB4">
           <controller>49</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <off>0</off>
           <on>127</on>
           <behavior>gate</behavior>
@@ -410,7 +410,7 @@
         </led>
         <led version="1" id="PadB4H">
           <display type="0">
-            <unit color-type="1" color-mode="0" color-on-index="9" color-off-index="1" />
+            <unit color-type="1" color-mode="0" color-on-index="6" color-off-index="1" />
           </display>
           <controller>49</controller>
           <channel>0</channel>
@@ -506,7 +506,7 @@
         </led>
         <button version="1" id="PadC3">
           <controller>46</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <off>0</off>
           <on>127</on>
           <behavior onIfDown="on">toggle</behavior>
@@ -544,7 +544,7 @@
         </led>
         <button version="1" id="PadC4">
           <controller>50</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <off>0</off>
           <on>127</on>
           <behavior>gate</behavior>
@@ -562,7 +562,7 @@
         </led>
         <led version="1" id="PadC4H">
           <display type="0">
-            <unit color-type="1" color-mode="0" color-on-index="10" color-off-index="1" />
+            <unit color-type="1" color-mode="0" color-on-index="5" color-off-index="1" />
           </display>
           <controller>50</controller>
           <channel>0</channel>
@@ -658,7 +658,7 @@
         </led>
         <button version="1" id="PadD3">
           <controller>47</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <off>0</off>
           <on>127</on>
           <behavior onIfDown="on">toggle</behavior>
@@ -696,7 +696,7 @@
         </led>
         <button version="1" id="PadD4">
           <controller>51</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <off>0</off>
           <on>127</on>
           <behavior>gate</behavior>
@@ -714,7 +714,7 @@
         </led>
         <led version="1" id="PadD4H">
           <display type="0">
-            <unit color-type="1" color-mode="0" color-on-index="11" color-off-index="1" />
+            <unit color-type="1" color-mode="0" color-on-index="4" color-off-index="1" />
           </display>
           <controller>51</controller>
           <channel>0</channel>
@@ -774,7 +774,7 @@
         </button>
         <knob version="1" id="Volume1">
           <controller>6</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <min>0</min>
           <max>127</max>
           <default>0</default>
@@ -784,7 +784,7 @@
         </knob>
         <knob version="1" id="Volume2">
           <controller>7</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <min>0</min>
           <max>127</max>
           <default>0</default>
@@ -794,7 +794,7 @@
         </knob>
         <knob version="1" id="Volume3">
           <controller>8</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <min>0</min>
           <max>127</max>
           <default>0</default>
@@ -804,7 +804,7 @@
         </knob>
         <knob version="1" id="Volume4">
           <controller>9</controller>
-          <channel>13</channel>
+          <channel>12</channel>
           <min>0</min>
           <max>127</max>
           <default>0</default>
@@ -900,22 +900,6 @@
           <bipolar>off</bipolar>
         </knob>
         <button version="1" id="Mute1">
-          <note>52</note>
-          <channel>12</channel>
-          <off>0</off>
-          <on>127</on>
-          <behavior onIfDown="on">gate</behavior>
-          <reaction>ondown</reaction>
-        </button>
-        <button version="1" id="Mute2">
-          <note>53</note>
-          <channel>12</channel>
-          <off>0</off>
-          <on>127</on>
-          <behavior onIfDown="on">gate</behavior>
-          <reaction>ondown</reaction>
-        </button>
-        <button version="1" id="Mute3">
           <note>54</note>
           <channel>12</channel>
           <off>0</off>
@@ -923,8 +907,24 @@
           <behavior onIfDown="on">gate</behavior>
           <reaction>ondown</reaction>
         </button>
-        <button version="1" id="Mute4">
+        <button version="1" id="Mute2">
           <note>55</note>
+          <channel>12</channel>
+          <off>0</off>
+          <on>127</on>
+          <behavior onIfDown="on">gate</behavior>
+          <reaction>ondown</reaction>
+        </button>
+        <button version="1" id="Mute3">
+          <controller>54</controller>
+          <channel>12</channel>
+          <off>0</off>
+          <on>127</on>
+          <behavior onIfDown="on">gate</behavior>
+          <reaction>ondown</reaction>
+        </button>
+        <button version="1" id="Mute4">
+          <controller>55</controller>
           <channel>12</channel>
           <off>0</off>
           <on>127</on>
